@@ -34,8 +34,8 @@ jobs:
         pip install -U numpy scipy
         git clone https://gitlab.com/qmml/qmmlpack.git
         cd qmmlpack
-        ./make -v --debug --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
-        ./make -v --debug --include-path="/usr/include/gsl" --library-path="/usr/lib" python
+        ./make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
+        ./make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" python
         ./make -v install
         cd ..
         export PYTHONPATH="/usr/local/qmmlpack/python:$PYTHONPATH"
