@@ -36,9 +36,10 @@ jobs:
         git clone https://gitlab.com/qmml/qmmlpack.git
         gawk '{gsub(/run\(\[file_cpp_test_exe/,"run([\"./\"+file_cpp_test_exe")};1' qmmlpack/make > qmmlpack/new_make
         cd qmmlpack
+        chmod 700 new_make
         ./new_make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
         ./new_make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" python
-        ./new_make -v install
+        sudo ./new_make -v install
         cd ${{ github.workspace }}
         export PYTHONPATH="/usr/local/qmmlpack/python:$PYTHONPATH"
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
