@@ -31,7 +31,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -U numpy scipy
         cd $GITHUB_WORKSPACE
-        git clone git@gitlab.com:qmml/qmmlpack.git
+        git clone https://gitlab.com/qmml/qmmlpack.git
         cd qmmlpack
         ./make -v cpp
         ./make -v python
