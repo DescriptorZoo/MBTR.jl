@@ -22,8 +22,8 @@ jobs:
     # Install dependencies
     - name: Install dependent libraries
       run: |
-        sudo apt-get install libgsl0-dev
-        dpkg -L libgsl0-dev
+        sudo apt-get install libgsl-dev libgsl23 libgslcblas0
+        dpkg -L libgsl-dev
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     # Setup Julia environment
