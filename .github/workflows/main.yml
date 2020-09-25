@@ -55,4 +55,4 @@ jobs:
     - run: |
         using InteractiveUtils; versioninfo()
         using Pkg; Pkg.activate("."); Pkg.test("MBTR")
-      shell: PYTHONPATH="/usr/local/qmmlpack/python:$PYTHONPATH" bash -c "julia --color=yes --project {0}"
+      shell: bash -c "PYTHONPATH=/usr/local/qmmlpack/python:$PYTHONPATH julia --color=yes --project {0}"
