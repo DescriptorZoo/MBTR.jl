@@ -23,7 +23,7 @@ jobs:
     - name: Install dependent libraries
       run: |
         sudo apt-get update && sudo apt-get install libgsl-dev libgsl23 libgslcblas0
-        sudo apt-get install awk cat
+        sudo apt-get install gawk
         dpkg -L libgsl-dev
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
@@ -35,7 +35,7 @@ jobs:
         pip install -U numpy scipy pytest
         git clone https://gitlab.com/qmml/qmmlpack.git
         cd qmmlpack
-        cat make | awk '{gsub(/run\(\[file_cpp_test_exe/,"run([\"./\"+file_cpp_test_exe")};1' > make
+        gawk '{gsub(/run\(\[file_cpp_test_exe/,"run([\"./\"+file_cpp_test_exe")};1' make > make
         ./make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
         ./make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" python
         ./make -v install
