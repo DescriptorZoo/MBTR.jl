@@ -22,7 +22,7 @@ jobs:
     # Install dependencies
     - name: Install dependent libraries
       run: |
-        sudo apt-get install libgsl-dev libgsl23 libgslcblas0
+        sudo apt-get update && sudo apt-get install libgsl-dev libgsl23 libgslcblas0
         dpkg -L libgsl-dev
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
@@ -31,13 +31,14 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -U numpy scipy
+        pip install -U numpy scipy pytest
+        cd ${{ github.workspace }}
         git clone https://gitlab.com/qmml/qmmlpack.git
         cd qmmlpack
         ./make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
         ./make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" python
         ./make -v install
-        cd ..
+        cd ${{ github.workspace }}
         export PYTHONPATH="/usr/local/qmmlpack/python:$PYTHONPATH"
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
