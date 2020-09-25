@@ -23,6 +23,7 @@ jobs:
     - name: Install dependent libraries
       run: |
         sudo apt-get update && sudo apt-get install libgsl-dev libgsl23 libgslcblas0
+        sudo apt-get install awk cat
         dpkg -L libgsl-dev
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
