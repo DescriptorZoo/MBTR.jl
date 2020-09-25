@@ -34,7 +34,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -U numpy scipy pytest
         git clone https://gitlab.com/qmml/qmmlpack.git
-        gawk '{gsub(/res = run\(\[file_cpp_test_exe/,"#res = run([file_cpp_test_exe"); gsub(/info\(res.strip/,"#info(res.strip")};1' qmmlpack/make > qmmlpack/new_make
+        gawk '{gsub(/res = run\(\[file_cpp_test_exe/,"res = [] #res = run([file_cpp_test_exe");};1' qmmlpack/make > qmmlpack/new_make
         cd qmmlpack
         chmod 700 new_make
         ./new_make -v --debug --cpp-compiler g++ --blas-lapack gsl --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
