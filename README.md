@@ -23,7 +23,7 @@ Once you have installed the Python package that is used by your Julia installati
 ## How to cite:
 
 If you use this code, we would appreciate if you cite the following paper:
-- Berk Onat, Christoph Ortner, James R. Kermode, 	[arXiv:2006.01915 (2020)](https://arxiv.org/abs/2006.01915)
+> Berk Onat, Christoph Ortner, James R. Kermode, 	[arXiv:2006.01915 (2020)](https://arxiv.org/abs/2006.01915)
 
 and since the code is dependent to [QMMLpack](https://gitlab.com/qmml/qmmlpack), you need to accept the license of [QMMLpack](https://gitlab.com/qmml/qmmlpack) and cite both the code and the reference papers as they are described in code's [webpage](https://singroup.github.io/dscribe/latest/citing.html). This includes the following paper:
 > Matthias Rupp: Machine Learning for Quantum Mechanics in a Nutshell, International Journal of Quantum Chemistry, 115(16): 1058–1073, 2015. [DOI](http://dx.doi.org/10.1002/qua.24954)
