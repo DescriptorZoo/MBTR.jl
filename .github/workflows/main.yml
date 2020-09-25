@@ -23,6 +23,7 @@ jobs:
     - name: Install dependent libraries
       run: |
         sudo apt-get install libgsl0-dev
+        dpkg -L libgsl0-dev
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     # Setup Julia environment
@@ -37,8 +38,8 @@ jobs:
         cd $GITHUB_WORKSPACE
         git clone https://gitlab.com/qmml/qmmlpack.git
         cd qmmlpack
-        ./make -v cpp --include-path="/usr/include/gsl"
-        ./make -v python --include-path="/usr/include/gsl"
+        ./make -v cpp --include-path="/usr/include/gsl" --library-path="/usr/lib"
+        ./make -v python --include-path="/usr/include/gsl" --library-path="/usr/lib"
         ./make -v install
         cd $GITHUB_WORKSPACE/MBTR.jl
         export PYTHONPATH="/usr/local/qmmlpack/python:$PYTHONPATH"
