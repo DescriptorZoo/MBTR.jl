@@ -1,3 +1,5 @@
+![CI](https://github.com/DescriptorZoo/MBTR.jl/workflows/CI/badge.svg)
+
 # MBTR.jl
 Julia wrapper for many-body tensor representation (MBTR)
 
