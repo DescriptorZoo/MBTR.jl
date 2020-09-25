@@ -38,8 +38,8 @@ jobs:
         cd $GITHUB_WORKSPACE
         git clone https://gitlab.com/qmml/qmmlpack.git
         cd qmmlpack
-        ./make -v cpp --include-path="/usr/include/gsl" --library-path="/usr/lib"
-        ./make -v python --include-path="/usr/include/gsl" --library-path="/usr/lib"
+        ./make -v --debug --include-path="/usr/include/gsl" --library-path="/usr/lib" cpp
+        ./make -v --debug --include-path="/usr/include/gsl" --library-path="/usr/lib" python
         ./make -v install
         cd $GITHUB_WORKSPACE/MBTR.jl
         export PYTHONPATH="/usr/local/qmmlpack/python:$PYTHONPATH"
